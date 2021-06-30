@@ -18,15 +18,14 @@ p,h1,h2,h3,h4{
 	display:flex;
 }
 .navbar-dark{
-	/* background-color:#111111; */
-	background-color:#000; 
-	/* background-color:#161516; */
+	background-color:#c4a264;
 }
 .nav-logo{
 	text-decoration:none;
 	margin-left:20px;
 	margin-top:30px;
 	font-family: 'Inter', sans-serif; 
+	font-weight:bold;
 	font-size:20px;
 	color:#ffffff;
 }
@@ -44,7 +43,8 @@ p,h1,h2,h3,h4{
 }
   .nav-item{ 
   	margin-top:8px;
-  	background-color:#3ed337;
+  	/* background-color:#3ed337; */
+  	background-color:#895c71;
   	border-radius:4px;
   	color:#000;
   	text-align:center;
@@ -176,6 +176,7 @@ p,h1,h2,h3,h4{
   	display:block;
   	margin-left:auto;
   	margin-right:auto;
+  	margin-top:20px;
   }
   .navbar{
   	padding:8px;
@@ -200,5 +201,6 @@ p,h1,h2,h3,h4{
   	width:60%;
   	max-height:60vh; 
   	margin-left:20%;
+  	margin-top:30px;
   }
 }
