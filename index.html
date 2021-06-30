@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="styles.css">
+	</head>
+
+	<body>
+		<div id="page">
+			<div id="navbar" class="navbar navbar-dark">
+					<a class="nav-logo" href="#home">Jordan Patterson</a>
+					<button id="nav-show" onclick="showNavbar()" class="nav-show nav-btn">O</button>
+					<button id="nav-hide" onclick="hideNavbar()" class="nav-hide nav-btn collapse">X</button>
+					<ul id="nav-group" class="navbar-group collapse">
+						<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+					</ul>
+
+			</div>
+			<div id="sect-1" class="container">
+				<div class="cell-50" style="overflow-y:hiddden;">
+					<img src="assets/portrait3.jpeg" class="responsive-img"/>
+					<!-- <h1 class="heirachy-1">Designer, Developer</h1> -->
+				</div>
+				<div id="welc-txt" class="cell-50 stacked">
+					<p class="heirarchy-4">Welcome to my Portfolio</p>
+					<p class="heirarchy-3">Jordan Patterson</p>
+					<h3 class="heirarchy-1">Designer, Developer</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		function hideElement(id){
+			var element = document.getElementById(id);
+			element.classList.add("collapse");
+		}
+		function showElement(id){
+			var element = document.getElementById(id);
+			element.classList.remove("collapse");
+		}
+		function removeClass(elementId,className){
+			var element = document.getElementById(elementId);
+			element.classList.remove(className);
+		}
+		function showNavbar(){
+			showElement("nav-group");
+			showElement("nav-hide");
+			hideElement("nav-show");
+			
+		}
+		function hideNavbar(){
+			hideElement("nav-group");
+			hideElement("nav-hide");
+			showElement("nav-show");
+		}
+	</script>
+</html>
