@@ -32,9 +32,6 @@ p,h1,h2,h3,h4{
 .navbar-light{
 	background-color:#ffffff;
 }
-.navbar-light *{
-	color:#000000;
-}
 .navbar-group{
 	list-style-type:none;
 	display:flex;
@@ -44,7 +41,7 @@ p,h1,h2,h3,h4{
   .nav-item{ 
   	margin-top:8px;
   	/* background-color:#3ed337; */
-  	background-color:#895c71;
+  	/* background-color:#895c71; */
   	border-radius:4px;
   	color:#000;
   	text-align:center;
@@ -54,12 +51,17 @@ p,h1,h2,h3,h4{
   }
  .nav-item:hover{
  	/* background-color:#201623; */
+ 	background-color:#efefef;
+ 	color:#000;
  }
 .nav-link{
 	font-family: 'Inter', sans-serif;
 	text-decoration:none;
 	padding:10px 16px;
 	transition:0.5s;
+	color:#fff; 
+}
+.nav-link:hover{
 	color:#000;
 }
 .ml-auto{
