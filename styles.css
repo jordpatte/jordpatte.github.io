@@ -29,6 +29,9 @@ p,h1,h2,h3,h4{
 	font-size:20px;
 	color:#ffffff;
 }
+.thin{
+	font-weight:lighter;
+}
 .navbar-light{
 	background-color:#ffffff;
 }
@@ -131,6 +134,7 @@ p,h1,h2,h3,h4{
 .nav-hide{
 	display:none;
 }
+
 @media only screen and (max-width: 768px) {
   .container{
   	flex-direction:column;
@@ -157,7 +161,14 @@ p,h1,h2,h3,h4{
   #welc-txt *{
   	text-align:center;
   }
-
+	.collapseArea{
+		max-height:1px;
+		overflow:hidden;
+		transition:all .5s ease;
+	}
+	.collapseArea.expand{
+		max-height:180px;
+	}
   .navbar-group{
   	display:flex; 
   	flex-direction:column; 
@@ -191,10 +202,11 @@ p,h1,h2,h3,h4{
   }
   .ml-auto{ 
   	margin-left:auto; 
+  	margin-right:auto;
   } 
 
 
-   .collapse{ 
+   .hide{ 
   	display:none; 
   } 
 

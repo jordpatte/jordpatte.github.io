@@ -14,14 +14,16 @@
 	<body>
 		<div id="page">
 			<div id="navbar" class="navbar navbar-dark">
-					<a class="nav-logo" href="#home">Jordan Patterson</a>
-					<button id="nav-show" onclick="showNavbar()" class="nav-show nav-btn"><i class="fas fa-bars nav-icon"></i></button> 
-					<button id="nav-hide" onclick="hideNavbar()" class="nav-hide nav-btn collapse"><i class="fas fa-times nav-icon"></i></button>
-					<ul id="nav-group" class="navbar-group collapse">
-						<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-					</ul>
+					<a class="nav-logo" href="#home">Jordan Patterson <span class="thin">Portfolio</span></a>
+					<button id="nav-show" onclick="ExpandNavbar()" class="nav-show nav-btn"><i class="fas fa-bars nav-icon"></i></button> 
+					<button id="nav-hide" onclick="CollapseNavbar()" class="nav-hide nav-btn hide"><i class="fas fa-times nav-icon"></i></button>
+					<div id="collapseArea"  class="collapseArea ml-auto">
+						<ul id="nav-group" class="navbar-group">
+							<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+							<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+						</ul>
+					</div>
 
 			</div>
 			<div id="sect-1" class="container">
@@ -39,24 +41,28 @@
 	<script>
 		function hideElement(id){
 			var element = document.getElementById(id);
-			element.classList.add("collapse");
+			element.classList.add("hide");
 		}
 		function showElement(id){
 			var element = document.getElementById(id);
-			element.classList.remove("collapse");
+			element.classList.remove("hide");
+		}
+		function addClass(elementId,className){
+			var element = document.getElementById(elementId);
+			element.classList.add(className);
 		}
 		function removeClass(elementId,className){
 			var element = document.getElementById(elementId);
 			element.classList.remove(className);
 		}
-		function showNavbar(){
-			showElement("nav-group");
+		function ExpandNavbar(){
+			addClass("collapseArea","expand");
 			showElement("nav-hide");
 			hideElement("nav-show");
-			
 		}
-		function hideNavbar(){
-			hideElement("nav-group");
+	
+		function CollapseNavbar(){
+			removeClass("collapseArea","expand");
 			hideElement("nav-hide");
 			showElement("nav-show");
 		}
