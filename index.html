@@ -2,12 +2,13 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Portfolio</title>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<title>Jordan's Portfolio</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://kit.fontawesome.com/a68959e06c.js" crossorigin="anonymous"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter&family=Poppins&display=swap" rel="stylesheet">
-
 		<link rel="stylesheet" href="styles.css">
 	</head>
 
@@ -19,16 +20,16 @@
 					<button id="nav-hide" onclick="CollapseNavbar()" class="nav-hide nav-btn hide"><i class="fas fa-times nav-icon"></i></button>
 					<div id="collapseArea"  class="collapseArea ml-auto">
 						<ul id="nav-group" class="navbar-group">
-							<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="#sec-2">About</a></li>
 							<li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-							<li class="nav-link-btn"><a class="nav-link link-btn" href="#contact">Contact</a></li>
+							<li class="nav-link-btn"><a class="nav-link link-btn" href="#sec-3">Contact</a></li>
 						</ul>
 					</div>
 
 			</div>
 			<div id="sec-1" class="container">
 				<div class="cell-40" style="overflow-y:hiddden;">
-					<img src="assets/portrait9.jpg" class="responsive-img"/>
+					<img src="assets/portraits/portrait12.jpg" class="responsive-img"/>
 				</div>
 				<div id="welc-txt" class="cell-60 stacked">
 					<p class="heirarchy-4">Welcome to my Portfolio</p>
@@ -54,6 +55,72 @@
 				</div> 
 				<div class="cell-20"></div> 
 			</div> 
+			<div id="sec-3" class="container">
+				<div class="cell-20"></div>
+				<div class="cell-60">
+					<h3 class="heirarchy-2" style="color:#c4a264;">Get in touch</h3>
+					<div class="form-container">
+						<div class="container">
+							<div class="cell-5"></div>
+							<div class="cell-90">
+								<h3 class="heirarchy-3 dm-ser">Contact</h3>
+								<p id="status-msg" class="heirarchy-4"></p>
+							</div>
+							<div class="cell-5"></div>
+						</div>
+						<form id="contact-form" class="stacked" action="https://formspree.io/f/xwkaqwnz" method="POST">
+							<div class="form-row">
+								<div class="cell-5"></div>
+								<div class="form-group cell-40">
+									<label for="name">Name:</label>
+									<input type="text" name="name" required />
+									<small id="name-err"></small>
+								</div>
+								<div class="cell-10"></div>
+								<div class="form-group cell-40">
+									<label for="email">Email Address:</label>
+									<input type="email" name="_replyto" required/>
+									<small id="email-err"></small>
+								</div>
+								<div class="cell-5"></div>
+							</div>
+							<div class="form-row">
+								<div class="cell-5"></div>
+								<div class="form-group cell-90">
+									<label>Message:</label>
+									<textarea name="message" required></textarea>
+									<small id="message-err"></small>
+								</div>
+								<div class="cell-5"></div>
+							</div>
+							<div class="form-row">
+								<input id="submit" type="submit" value="Send" />
+								<div class="cell-5"></div>
+							</div>
+						</form>
+						
+					</div>
+				</div>
+				<div class="cell-20"></div>
+			</div>
+			<div id="footer" class="container">
+				<div class="cell-20"></div>
+				<div class="cell-60 footer-text">
+					<p class="nav-logo">Jordan Patterson <span class="thin">Portolio</span></p>
+					<div class="sl-media-container">
+							<div class="sl-media-link-container">
+								<a href="https://github.com/jordpatte" target="_blank"><i class="fab fa-github"></i></a>
+							</div> 
+							<div class="sl-media-link-container">
+								<a href="https://dribbble.com/Justjor" target="_blank"><i class="fas fa-basketball-ball"></i></a>
+							</div>  
+							<div class="sl-media-link-container">  
+								<a href="https://instagram.com/jordpatte" target="_blank"><i class="fab fa-instagram"></i></a>
+							</div>
+					</div>
+				</div>
+				<div class="cell-20"></div>
+			</div>
 		</div>
 	</body>
 	<script>
@@ -84,5 +151,47 @@
 			hideElement("nav-hide");
 			showElement("nav-show");
 		}
+		function emailValid(email){
+			if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+			  {
+			    return true
+			  }
+			  return false
+			
+		}
+		$('#contact-form').on('submit',function(e){ 
+			e.preventDefault(); 
+			let name = document.getElementsByName('name')[0].value; 
+			let email = document.getElementsByName('_replyto')[0].value; 
+			let message = document.getElementsByName('message')[0].value; 
+			if(name!='' && email!='' && message!='' && emailValid(email)){ 
+				url = "https://formspree.io/f/xwkaqwnz"; 
+				try{
+					$.post(url, 
+					{ 
+						name:name, 
+						_replyto:email, 
+						message:message, 
+					}, 
+					function(data,success){ 
+					}); 	
+				}catch{}
+				$('#contact-form').trigger('reset'); 
+				$('#status-msg').text('Your message was sent and received successfully.'); 
+			}else{ 
+				if(name==''){ 
+					$('#name-err').text('This field is required.'); 
+				} 
+				if(email==''){ 
+					$('#email-err').text('This field is required.'); 
+				} 
+				if(message==''){ 
+					$('#message-err').text('This field is required.') 
+				} 
+				if(!emailValid(email)){ 
+					$('#email-err').text('Email address must be valid.'); 
+				} 
+			} 
+		}); 
 	</script>
 </html>
